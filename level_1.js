@@ -53,18 +53,34 @@ let products = [
 // console.log(getProductsAbovePrice(products,500 ));
 //Find low-stock products
 //Write getLowStockProducts(products, limit).Return products whose quantity is less than limit.
-function getLowStockProducts(products, limit) {
-    let lessQuantity = [];
-  for (let i = 0; i < products.length; i++){
-    let originalproduct = products[i];
-      if (originalproduct.quantity < limit) {
-        lessQuantity.push(originalproduct);
+// function getLowStockProducts(products, limit) {
+//     let lessQuantity = [];
+//   for (let i = 0; i < products.length; i++){
+//     let originalproduct = products[i];
+//       if (originalproduct.quantity < limit) {
+//         lessQuantity.push(originalproduct);
 
-      }
-  }
-  return lessQuantity;
-};
-console.log(getLowStockProducts(products, 8))
+//       }
+//   }
+//   return lessQuantity;
+// };
+// console.log(getLowStockProducts(products, 8))
 
 //Apply a discount
 //Write applyDiscount(products, discount). Return a new array of objects containing each product's name and discounted price. A discount of 0.20 means 20%. Do not modify the original products.
+
+function applyDiscount(products, discount) {
+
+  let discountProducts = [];
+
+  for (let i = 0; i < products.length; i++) {
+    let prod = {
+      name: products[i].name,
+      price: products[i].price * (1 - discount)
+    };
+    discountProducts.push(prod);
+  }
+  return discountProducts;
+}
+
+console.log(applyDiscount(products, 0.20));
